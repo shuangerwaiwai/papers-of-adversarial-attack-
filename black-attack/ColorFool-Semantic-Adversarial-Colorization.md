@@ -72,7 +72,7 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
 
 4)生成对抗样本
 
-  X = Q($\gamma$<sup>-1</sup>($\sum_{k=1}^S$S<sub>k</sub> + $\sum_{k=1}^$\overline{S}$$$\overline{S}$<sub>k</sub>))
+  X = Q($\gamma$<sup>-1</sup>($\sum_{k=1}^S$S<sub>k</sub> + $\sum_{k=1}^\overline{S}$ $\overline{S}$<sub>k</sub>))
 
 4、实验
 作者从成功率SR、鲁棒性Robustness to defenses、生成图片质量Quality等方面进行了实验，
