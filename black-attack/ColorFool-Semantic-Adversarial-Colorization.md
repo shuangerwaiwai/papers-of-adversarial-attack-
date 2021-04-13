@@ -60,7 +60,7 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
 
 1）图片通过训练好的语义分割模型，得到敏感区域和不敏感区域
 
-2）敏感区域 **S1 = {S1<sub>k</sub>: S1<sub>k</sub>=$\gamma$(S<sub>k</sub>) + $\alpha$[0, N<sup>a</sup><sub>k</sub>, N<sup>b</sup><sub>k</sub>]^T}<sup>S</sup><sub>k=1</sub>**
+2）敏感区域 **S1 = {S1<sub>k</sub>: S1<sub>k</sub>=$\gamma$(S<sub>k</sub>) + $\alpha$[0, N<sup>a</sup><sub>k</sub>, N<sup>b</sup><sub>k</sub>]<sup>T</sup>}<sup>S</sup><sub>k=1</sub>**
 
   $\gamma$(.)将RGB图像转换成Lab， N<sup>a</sup><sub>k</sub>, N<sup>b</sup><sub>k</sub>是添加在a， b通道上的扰动，扰动范围如表2所示。
 
@@ -72,7 +72,7 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
 
 4)生成对抗样本
 
-  X = Q($\gamma$<sup>-1</sub>($\sum_{k=1}^S$S<sub>k</sub> + $\sum_{k=1}^$\overline{S}$$$\overline{S}$<sub>k</sub>))
+  X = Q($\gamma$<sup>-1</sup>($\sum_{k=1}^S$S<sub>k</sub> + $\sum_{k=1}^$\overline{S}$$$\overline{S}$<sub>k</sub>))
 
 4、实验
 作者从成功率SR、鲁棒性Robustness to defenses、生成图片质量Quality等方面进行了实验，
