@@ -83,5 +83,6 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
 
 文中敏感区域是自己定的，且种类局限，并不适用于所有的情况
 
-[code](https://github.com/smartcameras/ColorFool)
-[paper](https://arxiv.org/abs/1911.10891)
+[code](https://github.com/smartcameras/ColorFool) https://github.com/smartcameras/ColorFool
+
+[paper](https://arxiv.org/abs/1911.10891) https://arxiv.org/abs/1911.10891
