@@ -75,8 +75,10 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
   X = Q($\gamma$<sup>-1</sup>($\sum_{k=1}^S$S<sub>k</sub> + $\sum_{k=1}^\overline{S}$ $\overline{S}$<sub>k</sub>))
 
 4、实验
+
 作者从成功率SR、鲁棒性Robustness to defenses、生成图片质量Quality等方面进行了实验，
 实验表明，ColorFool在攻击强度、鲁棒性、迁移性、人眼不易察觉等方面都表现出色。
 
 5、不足
+
 文中敏感区域是自己定的，且种类局限，并不适用于所有的情况
