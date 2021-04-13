@@ -60,23 +60,23 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
 
 1）图片通过训练好的语义分割模型，得到敏感区域和不敏感区域
 
-2）敏感区域 **S1 = ${S1<sub>k</sub>: S1<sub>k</sub>=\gamma(S<sub>k</sub>) + \alpha[0, N<sup>a</sup><sub>k</sub>, N<sup>b</sup><sub>k</sub>]^T}<sup>S</sup><sub>k=1</sub>$**
+2）敏感区域 **S1 = {S1<sub>k</sub>: S1<sub>k</sub>=$\gamma$(S<sub>k</sub>) + $\alpha$[0, N<sup>a</sup><sub>k</sub>, N<sup>b</sup><sub>k</sub>]^T}<sup>S</sup><sub>k=1</sub>**
 
   $\gamma$(.)将RGB图像转换成Lab， N<sup>a</sup><sub>k</sub>, N<sup>b</sup><sub>k</sub>是添加在a， b通道上的扰动，扰动范围如表2所示。
 
-3）不敏感区域 **$\overline{S} = {\overline{S}<sub>k</sub>: \overline{S}<sub>k</sub>=\gamma(\overline{S}<sub>k</sub>) + \alpha[0, \overline{N}<sup>a</sup>, \overline{N}<sup>b</sup>]<sup>T</sup>}<sup>\overline{S}</sup><sub>k=1</sub>$**
+3）不敏感区域 **$\overline{S}$ = {$\overline{S}$<sub>k</sub>: $\overline{S}$<sub>k</sub>=$\gamma$($\overline{S}$<sub>k</sub>) + $\alpha$[0, $\overline{N}$<sup>a</sup>, $\overline{N}$<sup>b</sup>]<sup>T</sup>}<sup>$\overline{S}$</sup><sub>k=1</sub>**
 
-  $\overline{N}<sup>a</sup>\in${-127, ... , 128}
+  $\overline{N}$<sup>a</sup>$\in${-127, ... , 128}
 
-  $\overline{N}<sup>b</sup>\in${-127, ... , 128}
+  $\overline{N}$<sup>b</sup>$\in${-127, ... , 128}
 
 4)生成对抗样本
-  X = Q($\gamma<sup>-1<sup>(\sum_{k=1}^SS<sub>k</sub> + \sum_{k=1}^\overline{S}\overline{S}<sub>k</sub>))
 
-  Q(.)是量化函数（quantization function），确保生成的对抗样本像素值合法
-  $\gamma<sup>-1<sup>$将Lab颜色空间转换成RGB
-  
+  X = Q($\gamma$<sup>-1</sub>($\sum_{k=1}^S$S<sub>k</sub> + $\sum_{k=1}^$\overline{S}$$$\overline{S}$<sub>k</sub>))
+
 4、实验
+作者从成功率SR、鲁棒性Robustness to defenses、生成图片质量Quality等方面进行了实验，
+实验表明，ColorFool在攻击强度、鲁棒性、迁移性、人眼不易察觉等方面都表现出色。
 
-作者在成功率SR、鲁棒性Robustness to defenses、质量Quality方面做了实验，实验表明，ColorFool
-在攻击强度、迁移性、鲁棒性、人眼不易察觉等方面都达到了更好的水平。
+5、不足
+文中敏感区域是自己定的，且种类局限，并不适用于所有的情况
