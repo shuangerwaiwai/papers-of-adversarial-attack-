@@ -30,19 +30,19 @@ TAP进行了两次正则化，本文提出的ATA只进行了一次正则化。
 
 ###ATA
 
-1、期望对抗样本的搜索朝着替代模型和目标模型共同易受攻击的方向
+####1、期望对抗样本的搜索朝着替代模型和目标模型共同易受攻击的方向
 
-2、作者观察到，大部分模型提取到的关键特征基本是相同的，如图1所示
+####2、作者观察到，大部分模型提取到的关键特征基本是相同的，如图1所示
 
 ![img_1.png](../img/img_1.png)
 
-3、通过注意力机制将最易受攻击的特征提取出来，将扰动加在这些特征上
+####3、通过注意力机制将最易受攻击的特征提取出来，将扰动加在这些特征上
 
-4、过程
+####4、过程
 
 ![img_2.png](../img/img_2.png)
 
-1）attention extraction：通过反向传播梯度估计不同特征对模型方向的重要性
+1）**attention extraction：**通过反向传播梯度估计不同特征对模型方向的重要性
 
 作者将整个feature map当作基础的特征提取器，因此，我们通过以下公式估计在分类为t时A<sup>c</sup><sub>k</sub>(第k层的第c个feature map)的权重
 
@@ -52,7 +52,7 @@ Z是归一化常量（normalizing constant），为了使$\alpha$ <sup>c</sup><s
 
 我们称$\alpha$ <sub>k</sub> [t] 为分类为t时在第k层提取出的不同特征的注意力权重
 
-2）choose critical features
+2）**choose critical features**
 
 H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c}$ $\alpha$ <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>)
 
@@ -63,19 +63,19 @@ H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feat
 
 对注意力权重较大的特征进行较大的改变
 
-3）critial feature destruction
+3）**critial feature destruction**
 
 不仅误导模型错误分类，而且扰动最重要的中间特征。最终的优化损失目标函数是
 
 maximize J(x,x',t,f),
 
->>>where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ || H<sup>t</sup><sub>k</sub>(x') - H<sup>t</sup><sub>k</sub>(x) || <sup>2</sup>
+where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ || H<sup>t</sup><sub>k</sub>(x') - H<sup>t</sup><sub>k</sub>(x) || <sup>2</sup>
 
->>>subject to ||x' - x||<sub>p</sub> $\leq$ $\epsilon$
+subject to ||x' - x||<sub>p</sub> $\leq$ $\epsilon$
 
 l(·)是分类损失， $\lambda$ 是可调的权重参数，控制正则化的影响
 
-5、实验
+####5、实验
 
 作者在攻击能力和迁移性方面进行了实验，效果证明普遍由于其它方法，且生成的图片不易被察觉。
 
