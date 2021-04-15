@@ -39,13 +39,14 @@ TAP进行了两次正则化，本文提出的ATA只进行了一次正则化。
 3、通过注意力机制将最易受攻击的特征提取出来，将扰动加在这些特征上
 
 4、过程
+
 ![img_2.png](../img/img_2.png)
 
 1）attention extraction：通过反向传播梯度估计不同特征对模型方向的重要性
 
 作者将整个feature map当作基础的特征提取器，因此，我们通过以下公式估计在分类为t时A<sup>c</sup><sub>k</sub>(第k层的第c个feature map)的权重
 
-$$ $\alpha$<sup>c</sup><sub></sub> [t] = $\frac{1}{Z}$ $\sum_{m}$ $\sum_{n}$ $\frac{\partial f(x)[t]}{\partial A<sup>c</sup><sub>k</sub>[m,n]}$ $$
+$\alpha$<sup>c</sup><sub></sub> [t] = $\frac{1}{Z}$ $\sum_{m}$ $\sum_{n}$ $\frac{\partial f(x)[t]}{\partial A<sup>c</sup><sub>k</sub>[m,n]}$
 
 Z是归一化常量（normalizing constant），为了使$\alpha <sup>c</sup><sub>k</sub>[i] $\in$ [-1, 1]$
 
@@ -53,7 +54,7 @@ Z是归一化常量（normalizing constant），为了使$\alpha <sup>c</sup><su
 
 2）choose critical features
 
-$$ H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c} \alpha <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>$) $$
+H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c} \alpha <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>$)
 
 H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feature map的分辨率一样大的，因为不同模型和不同层的feature maps大小不一致，所以通过双线性插值的方式
 将attention map的分辨率调整到和输入图像大小一致。
