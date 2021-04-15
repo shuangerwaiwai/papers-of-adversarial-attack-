@@ -54,7 +54,7 @@ Z是归一化常量（normalizing constant），为了使$\alpha$ <sup>c</sup><s
 
 2）choose critical features
 
-H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c} $\alpha$ <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>)
+H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c}$ $\alpha$ <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>)
 
 H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feature map的分辨率一样大的，因为不同模型和不同层的feature maps大小不一致，所以通过双线性插值的方式
 将attention map的分辨率调整到和输入图像大小一致。
@@ -69,7 +69,7 @@ H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feat
 
 maximize J(x,x',t,f),
 
-where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ ||H<sup>t</sup><sub>k<sub>(x') - H<sup>t</sup><sub>k<sub>()||<sup>2</sup>
+where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ || H<sup>t</sup><sub>k<sub>(x') - H<sup>t</sup><sub>k<sub>() || <sup>2</sup>
 
 subject to ||x' - x||<sub>p</sub> $\leq$ $\epsilon$
 
