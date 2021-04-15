@@ -54,7 +54,7 @@ unrestricted 并不控制扰动的大小，对防御具有健壮性，且生成�
 
 * S4: 水 water(e.g. sea, river, waterfall, swimming pool and lake)
 
-![img.png](img.png)
+![img.png](../img/img.png)
 
 3、方法步骤
 
