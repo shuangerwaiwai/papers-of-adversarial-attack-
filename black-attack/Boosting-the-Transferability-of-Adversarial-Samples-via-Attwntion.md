@@ -46,15 +46,15 @@ TAP进行了两次正则化，本文提出的ATA只进行了一次正则化。
 
 作者将整个feature map当作基础的特征提取器，因此，我们通过以下公式估计在分类为t时A<sup>c</sup><sub>k</sub>(第k层的第c个feature map)的权重
 
-$\alpha$<sup>c</sup><sub></sub> [t] = $\frac{1}{Z}$ $\sum_{m}$ $\sum_{n}$ $\frac{\partial f(x)[t]}{\partial A<sup>c</sup><sub>k</sub>[m,n]}$
+$\alpha$<sup>c</sup><sub>k</sub> [t] = $\frac{1}{Z}$ $\sum_{m}$ $\sum_{n}$ $\frac{$\partial$ f(x)[t]}{$\partial$ A<sup>c</sup><sub>k</sub>[m,n]}$
 
-Z是归一化常量（normalizing constant），为了使$\alpha <sup>c</sup><sub>k</sub>[i] $\in$ [-1, 1]$
+Z是归一化常量（normalizing constant），为了使$\alpha$ <sup>c</sup><sub>k</sub>[i] $\in$ [-1, 1]
 
-我们称$\alpha <sub>k</sub> [t] 为分类为t时在第k层提取出的不同特征的注意力权重$
+我们称$\alpha$ <sub>k</sub> [t] 为分类为t时在第k层提取出的不同特征的注意力权重
 
 2）choose critical features
 
-H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c} \alpha <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>$)
+H<sup>t</sup><sub>k</sub> = ReLU($\sum_{c} $\alpha$ <sup>c</sup><sub>k</sub>[t]·A<sup>c</sup><sub>k</sub>)
 
 H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feature map的分辨率一样大的，因为不同模型和不同层的feature maps大小不一致，所以通过双线性插值的方式
 将attention map的分辨率调整到和输入图像大小一致。
@@ -69,7 +69,7 @@ H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feat
 
 maximize J(x,x',t,f),
 
-where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k} ||H<sup>t</sup><sub>k<sub>(x') - H<sup>t</sup><sub>k<sub>()||<sup>2</sup>$
+where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ ||H<sup>t</sup><sub>k<sub>(x') - H<sup>t</sup><sub>k<sub>()||<sup>2</sup>
 
 subject to ||x' - x||<sub>p</sub> $\leq$ $\epsilon$
 
