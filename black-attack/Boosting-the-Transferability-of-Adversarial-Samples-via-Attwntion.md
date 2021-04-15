@@ -46,7 +46,7 @@ TAP进行了两次正则化，本文提出的ATA只进行了一次正则化。
 
 作者将整个feature map当作基础的特征提取器，因此，我们通过以下公式估计在分类为t时A<sup>c</sup><sub>k</sub>(第k层的第c个feature map)的权重
 
-$\alpha$<sup>c</sup><sub>k</sub> [t] = $\frac{1}{Z}$ $\sum_{m}$ $\sum_{n}$ $\frac{$\partial$ f(x)[t]}{$\partial$ A<sup>c</sup><sub>k</sub>[m,n]}$
+$\alpha$<sup>c</sup><sub>k</sub> [t] = $\frac{1}{Z}$ $\sum_{m}$ $\sum_{n}$ $\frac{\partial f(x)[t]}{\partial A<sup>c</sup><sub>k</sub>[m,n]}$
 
 Z是归一化常量（normalizing constant），为了使$\alpha$ <sup>c</sup><sub>k</sub>[i] $\in$ [-1, 1]
 
