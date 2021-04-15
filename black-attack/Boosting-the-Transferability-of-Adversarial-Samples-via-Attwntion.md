@@ -69,7 +69,7 @@ H<sup>t</sup><sub>k</sub>成为attention map， 它的分辨率是与第k层feat
 
 maximize J(x,x',t,f),
 
-where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ || H<sup>t</sup><sub>k<sub>(x') - H<sup>t</sup><sub>k<sub>() || <sup>2</sup>
+where J(x,x',t,f) = l(f(x'), t) + $\lambda$ $\sum_{k}$ || {H<sup>t</sup><sub>k<sub>(x')} - {H<sup>t</sup><sub>k<sub>()} || <sup>2</sup>
 
 subject to ||x' - x||<sub>p</sub> $\leq$ $\epsilon$
 
